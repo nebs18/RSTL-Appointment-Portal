@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Register Company</h1>
+  <form method="post" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <p>
+      {{ form.company_name.label }}<br>
+      {{ form.company_name() }}
+    </p>
+    <p>
+      {{ form.business_permit.label }}<br>
+      {{ form.business_permit() }}
+    </p>
+    <p>
+      {{ form.orcr.label }}<br>
+      {{ form.orcr() }}
+    </p>
+    <p>
+      {{ form.license_plate.label }}<br>
+      {{ form.license_plate() }}
+    </p>
+    <p>
+      {{ form.submit() }}
+    </p>
+  </form>
+{% endblock %} 

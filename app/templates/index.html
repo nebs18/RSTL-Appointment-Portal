@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Regional Standards & Testing Laboratories</h1>
+        <p>Providing quality testing, calibration, and measurement services to support industries and ensure product quality and safety standards.</p>
+        <a href="#services" class="btn btn-primary">Get Scheduled</a>
+        <a href="{{ url_for('metrology.register_company') }}" class="btn">I'm a Manager</a>
+      </div>
+      <div class="hero-logo">
+        <img src="https://via.placeholder.com/80x80" alt="DOST-V Logo">
+        <h2>DOST-V <span>Appointment Portal</span></h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="container">
+      <h2 class="section-title">Regional Standards & Testing Laboratories</h2>
+      
+      <div class="services-grid">
+        <!-- Metrology Service -->
+        <div class="service-card">
+          <div class="service-icon">
+            <img src="https://via.placeholder.com/80x80/0066cc/ffffff?text=M" alt="Metrology Icon">
+          </div>
+          <div class="service-content">
+            <h3>Metrology Laboratory services</h3>
+            <p>Calibration and measurement services for various instruments and equipment to ensure accuracy and reliability.</p>
+            <a href="{{ url_for('metrology.register_company') }}" class="btn">Register Company</a>
+            <a href="{{ url_for('metrology.schedule_appointment') }}" class="btn">Schedule Appointment</a>
+          </div>
+        </div>
+        
+        <!-- Chemical Testing -->
+        <div class="service-card">
+          <div class="service-icon">
+            <img src="https://via.placeholder.com/80x80/0066cc/ffffff?text=C" alt="Chemical Icon">
+          </div>
+          <div class="service-content">
+            <h3>Chemical Tests</h3>
+            <p>Comprehensive chemical analysis for various samples and materials to verify composition and quality.</p>
+            <a href="#" class="btn">Coming Soon</a>
+          </div>
+        </div>
+        
+        <!-- Microbiological Testing -->
+        <div class="service-card">
+          <div class="service-icon">
+            <img src="https://via.placeholder.com/80x80/0066cc/ffffff?text=M" alt="Microbiological Icon">
+          </div>
+          <div class="service-content">
+            <h3>Microbiological Tests</h3>
+            <p>Testing for microorganisms and biological contaminants in various samples to ensure safety and compliance.</p>
+            <a href="#" class="btn">Coming Soon</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OneLab Section -->
+  <section class="one-lab">
+    <div class="container">
+      <h2>OneLab</h2>
+      <p>DOST-V is a member of OneLab, a network of laboratories providing integrated services across the Philippines.</p>
+      <div class="mt-20">
+        <a href="#" class="btn">Learn More About OneLab</a>
+      </div>
+    </div>
+  </section>
+{% endblock %} 

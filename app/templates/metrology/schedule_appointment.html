@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Schedule Appointment</h1>
+  <form method="post">
+    {{ form.hidden_tag() }}
+    <p>
+      {{ form.truck_license_plate.label }}<br>
+      {{ form.truck_license_plate() }}
+    </p>
+    <p>
+      {{ form.liquid_carried.label }}<br>
+      {{ form.liquid_carried() }}
+    </p>
+    <p>
+      {{ form.submit() }}
+    </p>
+  </form>
+{% endblock %} 
