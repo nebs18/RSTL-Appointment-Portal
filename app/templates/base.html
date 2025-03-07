@@ -17,15 +17,21 @@
               <small>Regional Standard and Testing Laboratories</small>
             </div>
           </div>
+    
           <ul class="nav-links">
             <li><a href="{{ url_for('main.index') }}">Home</a></li>
             <li><a href="{{ url_for('metrology.lab_info') }}">Metrology</a></li>
             <li><a href="{{ url_for('chemistry.lab_info') }}">Chemical</a></li>
             <li><a href="{{ url_for('microbiology.lab_info') }}">Microbiological</a></li>
           </ul>
+    
+          <!-- Date and Time Display -->
+          <div id="datetime" class="datetime"></div>
+          
         </nav>
       </div>
     </header>
+    
 
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
