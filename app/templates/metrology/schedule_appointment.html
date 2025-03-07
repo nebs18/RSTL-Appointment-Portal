@@ -1,32 +1,55 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="appointment-page">
-  <div class="appointment-container">
-    <div class="appointment-sidebar">
+<div class="appointment-page-full">
+  <div class="container">
+    <div class="appointment-header">
       <a href="{{ url_for('metrology.lab_info') }}" class="back-link">
-        <i class="icon-arrow-left"></i>
+        <i class="icon-arrow-left"></i> Back
       </a>
-      <div class="sidebar-logo">
-        <img src="{{ url_for('static', filename='img/Logo_img.png') }}" alt="DOST Logo">
-      </div>
-    </div>
-    
-    <div class="appointment-content">
       <h1>Book an Appointment - Metrology</h1>
       <p>Schedule your appointment with our Metrology Laboratory for calibration and measurement services.</p>
+    </div>
+    
+    <form method="post" class="appointment-form-expanded">
+      {{ form.hidden_tag() }}
       
-      <form method="post" class="appointment-form">
-        {{ form.hidden_tag() }}
-        
-        <h2>Personal Details</h2>
-        <p class="form-note">*Make sure your manager registered you with the PL infos.</p>
-        
-        <div class="form-grid">
+      <div class="form-columns">
+        <div class="form-column">
+          <h2>Personal Details</h2>
+          <p class="form-note">*Manager registration required</p>
+          
           <div class="form-group">
             <label for="name">Name</label>
-            {{ form.name(class="form-control", placeholder="Enter your name", id="name") }}
+            {{ form.name(class="form-control", placeholder="Enter name", id="name") }}
             <span class="input-icon icon-user"></span>
           </div>
+          
+          <div class="form-group">
+            <label for="email">Email</label>
+            {{ form.email(class="form-control", placeholder="Enter email", id="email") }}
+            <span class="input-icon icon-envelope"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="contact_number">Contact Number</label>
+            {{ form.contact_number(class="form-control", placeholder="Enter contact", id="contact_number") }}
+            <span class="input-icon icon-phone"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="plate_number">Plate Number</label>
+            {{ form.truck_license_plate(class="form-control", placeholder="Enter plate", id="plate_number") }}
+            <span class="input-icon icon-tag"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="liquid_carried">Liquid Carried (liters)</label>
+            {{ form.liquid_carried(class="form-control", placeholder="Enter amount", id="liquid_carried") }}
+          </div>
+        </div>
+        
+        <div class="form-column">
+          <h2>Appointment Details</h2>
           
           <div class="form-group">
             <label for="service">Service To Avail</label>
@@ -35,94 +58,57 @@
           </div>
           
           <div class="form-group">
-            <label for="email">Email</label>
-            {{ form.email(class="form-control", placeholder="Enter your email", id="email") }}
-            <span class="input-icon icon-envelope"></span>
-          </div>
-          
-          <div class="form-group">
             <label for="appointment_date">Appointment Date</label>
             {{ form.appointment_date(class="form-control", id="appointment_date") }}
             <span class="input-icon icon-calendar"></span>
           </div>
           
-          <div class="form-group">
-            <label for="contact_number">Contact Number</label>
-            {{ form.contact_number(class="form-control", placeholder="Enter your contact number", id="contact_number") }}
-            <span class="input-icon icon-phone"></span>
-          </div>
-          
-          <div class="form-group">
-            <label for="plate_number">Plate Number</label>
-            {{ form.truck_license_plate(class="form-control", placeholder="Enter plate number", id="plate_number") }}
-            <span class="input-icon icon-tag"></span>
-          </div>
-        </div>
-        
-        <h2>Available Dates</h2>
-        <div class="calendar">
-          <div class="calendar-header">
-            <h3>JANUARY</h3>
-            <div class="year-selector">2024</div>
-          </div>
-          
-          <div class="calendar-grid">
-            <div class="calendar-day-header">S</div>
-            <div class="calendar-day-header">M</div>
-            <div class="calendar-day-header">T</div>
-            <div class="calendar-day-header">W</div>
-            <div class="calendar-day-header">T</div>
-            <div class="calendar-day-header">F</div>
-            <div class="calendar-day-header">S</div>
+          <h3>Available Dates</h3>
+          <div class="calendar-compact">
+            <div class="calendar-header">
+              <h4>JANUARY</h4>
+              <div class="year-selector">2024</div>
+            </div>
             
-            <!-- First row - empty days + first days of month -->
-            <div class="calendar-day disabled"></div>
-            <div class="calendar-day">1</div>
-            <div class="calendar-day">2</div>
-            <div class="calendar-day">3</div>
-            <div class="calendar-day">4</div>
-            <div class="calendar-day">5</div>
-            <div class="calendar-day">6</div>
-            
-            <!-- Remaining weeks -->
-            {% for week in range(4) %}
-              {% for day in range(7) %}
-                {% set day_num = week * 7 + day + 7 %}
-                {% if day_num <= 31 %}
-                  <div class="calendar-day">{{ day_num }}</div>
-                {% else %}
-                  <div class="calendar-day disabled"></div>
-                {% endif %}
+            <div class="calendar-grid">
+              <div class="calendar-day-header">S</div>
+              <div class="calendar-day-header">M</div>
+              <div class="calendar-day-header">T</div>
+              <div class="calendar-day-header">W</div>
+              <div class="calendar-day-header">T</div>
+              <div class="calendar-day-header">F</div>
+              <div class="calendar-day-header">S</div>
+              
+              <!-- Calendar days -->
+              <div class="calendar-day disabled"></div>
+              {% for i in range(1, 31) %}
+                <div class="calendar-day">{{ i }}</div>
               {% endfor %}
-            {% endfor %}
-          </div>
-        </div>
-        
-        <div class="form-group liquid-carried">
-          <label for="liquid_carried">Liquid Carried (liters)</label>
-          {{ form.liquid_carried(class="form-control", placeholder="Enter amount in liters", id="liquid_carried") }}
-        </div>
-        
-        <div class="form-checkboxes">
-          <div class="form-check">
-            {{ form.terms(id="terms") }}
-            <label for="terms">I accept <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+            </div>
           </div>
           
-          <div class="form-check">
-            {{ form.confirm(id="confirm") }}
-            <label for="confirm">I confirm that all the information provided is accurate and complete.</label>
+          <div class="form-checkboxes">
+            <div class="form-check">
+              {{ form.terms(id="terms") }}
+              <label for="terms">I accept <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+            </div>
+            
+            <div class="form-check">
+              {{ form.confirm(id="confirm") }}
+              <label for="confirm">I confirm all information is accurate and complete.</label>
+            </div>
           </div>
         </div>
-        
-        <button type="submit" class="btn btn-primary btn-block">MAKE AN APPOINTMENT</button>
-      </form>
-      
-      <div class="time-display">
-        <p>Philippine Standard Time</p>
-        <p id="current-time">Wednesday, March 5, 2023, 10:52:05 AM</p>
       </div>
-    </div>
+      
+      <div class="form-footer">
+        <button type="submit" class="btn btn-primary btn-block">MAKE AN APPOINTMENT</button>
+        <div class="time-display">
+          <p>Philippine Standard Time</p>
+          <p id="current-time">Wednesday, March 5, 2023, 10:52:05 AM</p>
+        </div>
+      </div>
+    </form>
   </div>
 </div>
 {% endblock %}
@@ -143,10 +129,7 @@
     document.getElementById('current-time').textContent = now.toLocaleString('en-US', options);
   }
   
-  // Update time every second
   setInterval(updateTime, 1000);
-  
-  // Initial update
   updateTime();
 </script>
 {% endblock %} 
