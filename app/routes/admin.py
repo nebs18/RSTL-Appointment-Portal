@@ -8,4 +8,4 @@ def dashboard():
 
 @admin.route('/verify_company', methods=['GET', 'POST'])
 def verify_company():
-    return render_template('admin/verify_company.html') 
+    return render_template('admin/verify_company.html')

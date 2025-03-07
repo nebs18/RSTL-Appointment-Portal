@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="lab-page">
+    <div class="container">
+      <div class="section-header">
+        <h1 class="underline-title">Our Services</h1>
+      </div>
+      
+      <div class="lab-info">
+        <div class="lab-content">
+          <h2>Microbiological Testing</h2>
+          <p>
+            The Microbiological Testing Laboratory provides specialized analysis services for detecting and identifying microorganisms in various samples. 
+            Our services ensure safety and quality control, helping industries comply with health standards and regulatory requirements.
+          </p>
+          <p>
+            We offer microbiological testing for food products, water samples, pharmaceutical products, 
+            and environmental specimens. Our laboratory utilizes modern techniques and equipment 
+            operated by qualified microbiologists to deliver accurate and reliable results.
+          </p>
+          <div class="action-buttons">
+            <a href="#" class="btn btn-primary">
+              <i class="icon-calendar"></i> Get Scheduled
+            </a>
+            <a href="#" class="btn btn-outline">
+              <i class="icon-user"></i> Online Services
+            </a>
+          </div>
+        </div>
+        <div class="lab-image">
+          <img src="{{ url_for('static', filename='img/Micro1.jpg') }}" alt="Microbiological Testing Laboratory">
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %} 

@@ -3,6 +3,10 @@ from app.forms.forms import CompanyRegistrationForm, TruckAppointmentForm
 
 metrology = Blueprint('metrology', __name__, url_prefix='/metrology')
 
+@metrology.route('/')
+def lab_info():
+    return render_template('metrology/lab_info.html')
+
 @metrology.route('/register_company', methods=['GET', 'POST'])
 def register_company():
     form = CompanyRegistrationForm()

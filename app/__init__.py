@@ -2,6 +2,8 @@ from flask import Flask
 from app.routes.metrology import metrology
 from app.routes.main import main
 from app.routes.admin import admin
+from app.routes.chemistry import chemistry
+from app.routes.microbiology import microbiology
 
 
 def create_app(config_filename=None):
@@ -13,6 +15,8 @@ def create_app(config_filename=None):
     # Register blueprints
     app.register_blueprint(main)
     app.register_blueprint(metrology)
+    app.register_blueprint(chemistry)
+    app.register_blueprint(microbiology)
     app.register_blueprint(admin)
     return app
  

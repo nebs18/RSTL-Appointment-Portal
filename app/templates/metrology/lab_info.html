@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="lab-page">
+    <div class="container">
+      <div class="section-header">
+        <h1 class="underline-title">Our Services</h1>
+      </div>
+      
+      <div class="lab-info">
+        <div class="lab-content">
+          <h2>Metrology Laboratory Services</h2>
+          <p>
+            The Metrology Laboratory provides calibration and measurement services for various instruments and equipment. 
+            Our services ensure accuracy and reliability in measurements, helping industries maintain quality standards and regulatory compliance.
+          </p>
+          <p>
+            We offer calibration services for a wide range of instruments including weighing devices, volumetric equipment, 
+            temperature measuring devices, and pressure gauges. Our laboratory is equipped with state-of-the-art equipment 
+            and staffed by highly trained professionals.
+          </p>
+          <div class="action-buttons">
+            <a href="{{ url_for('metrology.schedule_appointment') }}" class="btn btn-primary">
+              <i class="icon-calendar"></i> Get Scheduled
+            </a>
+            <a href="{{ url_for('metrology.register_company') }}" class="btn btn-outline">
+              <i class="icon-user"></i> Online Services
+            </a>
+          </div>
+        </div>
+        <div class="lab-image">
+          <img src="{{ url_for('static', filename='img/Banner2.jpg') }}" alt="Metrology Laboratory">
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %} 

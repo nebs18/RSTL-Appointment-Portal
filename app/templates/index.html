@@ -7,10 +7,9 @@
         <h1>Regional Standards & Testing Laboratories</h1>
         <p>Providing quality testing, calibration, and measurement services to support industries and ensure product quality and safety standards.</p>
         <a href="#services" class="btn btn-primary">Get Scheduled</a>
-        <a href="{{ url_for('metrology.register_company') }}" class="btn">I'm a Manager</a>
       </div>
       <div class="hero-logo">
-        <img src="https://via.placeholder.com/80x80" alt="DOST-V Logo">
+        <img src="{{ url_for('static', filename='img/Logo_img.png') }}" alt="DOST-V Logo">
         <h2>DOST-V <span>Appointment Portal</span></h2>
       </div>
     </div>
@@ -24,38 +23,31 @@
       <div class="services-grid">
         <!-- Metrology Service -->
         <div class="service-card">
-          <div class="service-icon">
-            <img src="https://via.placeholder.com/80x80/0066cc/ffffff?text=M" alt="Metrology Icon">
-          </div>
+          <div class="service-img metrology-img"></div>
           <div class="service-content">
             <h3>Metrology Laboratory services</h3>
             <p>Calibration and measurement services for various instruments and equipment to ensure accuracy and reliability.</p>
-            <a href="{{ url_for('metrology.register_company') }}" class="btn">Register Company</a>
-            <a href="{{ url_for('metrology.schedule_appointment') }}" class="btn">Schedule Appointment</a>
+            <a href="{{ url_for('metrology.lab_info') }}" class="btn">Learn More</a>
           </div>
         </div>
         
         <!-- Chemical Testing -->
         <div class="service-card">
-          <div class="service-icon">
-            <img src="https://via.placeholder.com/80x80/0066cc/ffffff?text=C" alt="Chemical Icon">
-          </div>
+          <div class="service-img chemical-img"></div>
           <div class="service-content">
             <h3>Chemical Tests</h3>
             <p>Comprehensive chemical analysis for various samples and materials to verify composition and quality.</p>
-            <a href="#" class="btn">Coming Soon</a>
+            <a href="{{ url_for('chemistry.lab_info') }}" class="btn">Learn More</a>
           </div>
         </div>
         
         <!-- Microbiological Testing -->
         <div class="service-card">
-          <div class="service-icon">
-            <img src="https://via.placeholder.com/80x80/0066cc/ffffff?text=M" alt="Microbiological Icon">
-          </div>
+          <div class="service-img micro-img"></div>
           <div class="service-content">
             <h3>Microbiological Tests</h3>
             <p>Testing for microorganisms and biological contaminants in various samples to ensure safety and compliance.</p>
-            <a href="#" class="btn">Coming Soon</a>
+            <a href="{{ url_for('microbiology.lab_info') }}" class="btn">Learn More</a>
           </div>
         </div>
       </div>

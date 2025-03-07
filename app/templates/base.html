@@ -11,7 +11,7 @@
       <div class="container">
         <nav class="navbar">
           <div class="logo">
-            <img src="https://via.placeholder.com/40x40" alt="DOST Logo">
+            <img src="{{ url_for('static', filename='img/Logo_img.png') }}" alt="DOST Logo">
             <div class="logo-text">
               Department of Science and Technology V
               <small>Regional Standard and Testing Laboratories</small>
@@ -19,9 +19,9 @@
           </div>
           <ul class="nav-links">
             <li><a href="{{ url_for('main.index') }}">Home</a></li>
-            <li><a href="{{ url_for('metrology.register_company') }}">Metrology</a></li>
-            <li><a href="#">Chemical</a></li>
-            <li><a href="#">Microbiological</a></li>
+            <li><a href="{{ url_for('metrology.lab_info') }}">Metrology</a></li>
+            <li><a href="{{ url_for('chemistry.lab_info') }}">Chemical</a></li>
+            <li><a href="{{ url_for('microbiology.lab_info') }}">Microbiological</a></li>
           </ul>
         </nav>
       </div>

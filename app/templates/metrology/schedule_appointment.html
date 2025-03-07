@@ -1,18 +1,152 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Schedule Appointment</h1>
-  <form method="post">
-    {{ form.hidden_tag() }}
-    <p>
-      {{ form.truck_license_plate.label }}<br>
-      {{ form.truck_license_plate() }}
-    </p>
-    <p>
-      {{ form.liquid_carried.label }}<br>
-      {{ form.liquid_carried() }}
-    </p>
-    <p>
-      {{ form.submit() }}
-    </p>
-  </form>
+<div class="appointment-page">
+  <div class="appointment-container">
+    <div class="appointment-sidebar">
+      <a href="{{ url_for('metrology.lab_info') }}" class="back-link">
+        <i class="icon-arrow-left"></i>
+      </a>
+      <div class="sidebar-logo">
+        <img src="{{ url_for('static', filename='img/Logo_img.png') }}" alt="DOST Logo">
+      </div>
+    </div>
+    
+    <div class="appointment-content">
+      <h1>Book an Appointment - Metrology</h1>
+      <p>Schedule your appointment with our Metrology Laboratory for calibration and measurement services.</p>
+      
+      <form method="post" class="appointment-form">
+        {{ form.hidden_tag() }}
+        
+        <h2>Personal Details</h2>
+        <p class="form-note">*Make sure your manager registered you with the PL infos.</p>
+        
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="name">Name</label>
+            {{ form.name(class="form-control", placeholder="Enter your name", id="name") }}
+            <span class="input-icon icon-user"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="service">Service To Avail</label>
+            {{ form.service(class="form-control", id="service") }}
+            <span class="input-icon icon-chevron-down"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email</label>
+            {{ form.email(class="form-control", placeholder="Enter your email", id="email") }}
+            <span class="input-icon icon-envelope"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="appointment_date">Appointment Date</label>
+            {{ form.appointment_date(class="form-control", id="appointment_date") }}
+            <span class="input-icon icon-calendar"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="contact_number">Contact Number</label>
+            {{ form.contact_number(class="form-control", placeholder="Enter your contact number", id="contact_number") }}
+            <span class="input-icon icon-phone"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="plate_number">Plate Number</label>
+            {{ form.truck_license_plate(class="form-control", placeholder="Enter plate number", id="plate_number") }}
+            <span class="input-icon icon-tag"></span>
+          </div>
+        </div>
+        
+        <h2>Available Dates</h2>
+        <div class="calendar">
+          <div class="calendar-header">
+            <h3>JANUARY</h3>
+            <div class="year-selector">2024</div>
+          </div>
+          
+          <div class="calendar-grid">
+            <div class="calendar-day-header">S</div>
+            <div class="calendar-day-header">M</div>
+            <div class="calendar-day-header">T</div>
+            <div class="calendar-day-header">W</div>
+            <div class="calendar-day-header">T</div>
+            <div class="calendar-day-header">F</div>
+            <div class="calendar-day-header">S</div>
+            
+            <!-- First row - empty days + first days of month -->
+            <div class="calendar-day disabled"></div>
+            <div class="calendar-day">1</div>
+            <div class="calendar-day">2</div>
+            <div class="calendar-day">3</div>
+            <div class="calendar-day">4</div>
+            <div class="calendar-day">5</div>
+            <div class="calendar-day">6</div>
+            
+            <!-- Remaining weeks -->
+            {% for week in range(4) %}
+              {% for day in range(7) %}
+                {% set day_num = week * 7 + day + 7 %}
+                {% if day_num <= 31 %}
+                  <div class="calendar-day">{{ day_num }}</div>
+                {% else %}
+                  <div class="calendar-day disabled"></div>
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
+          </div>
+        </div>
+        
+        <div class="form-group liquid-carried">
+          <label for="liquid_carried">Liquid Carried (liters)</label>
+          {{ form.liquid_carried(class="form-control", placeholder="Enter amount in liters", id="liquid_carried") }}
+        </div>
+        
+        <div class="form-checkboxes">
+          <div class="form-check">
+            {{ form.terms(id="terms") }}
+            <label for="terms">I accept <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+          </div>
+          
+          <div class="form-check">
+            {{ form.confirm(id="confirm") }}
+            <label for="confirm">I confirm that all the information provided is accurate and complete.</label>
+          </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary btn-block">MAKE AN APPOINTMENT</button>
+      </form>
+      
+      <div class="time-display">
+        <p>Philippine Standard Time</p>
+        <p id="current-time">Wednesday, March 5, 2023, 10:52:05 AM</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  function updateTime() {
+    const now = new Date();
+    const options = { 
+      weekday: 'long', 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit'
+    };
+    document.getElementById('current-time').textContent = now.toLocaleString('en-US', options);
+  }
+  
+  // Update time every second
+  setInterval(updateTime, 1000);
+  
+  // Initial update
+  updateTime();
+</script>
 {% endblock %} 

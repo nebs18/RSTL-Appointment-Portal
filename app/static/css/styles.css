@@ -48,6 +48,12 @@ header {
   align-items: center;
 }
 
+.logo img {
+  height: 40px;
+  width: auto;
+  margin-right: 10px;
+}
+
 .logo-text {
   margin-left: 10px;
 }
@@ -79,7 +85,7 @@ header {
 
 /* Hero Section */
 .hero {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x1080/0066cc/ffffff');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/Banner.jpg');
   background-size: cover;
   background-position: center;
   color: var(--white);
@@ -110,6 +116,11 @@ header {
   left: 50px;
   display: flex;
   align-items: center;
+}
+
+.hero-logo img {
+  height: 80px;
+  width: auto;
 }
 
 .hero-logo h2 {
@@ -170,12 +181,29 @@ header {
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  padding: 40px 20px;
   transition: transform 0.3s ease;
 }
 
 .service-card:hover {
   transform: translateY(-10px);
+}
+
+.service-img {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.metrology-img {
+  background-image: url('../img/Banner2.jpg');
+}
+
+.chemical-img {
+  background-image: url('../img/Chem1.jpg');
+}
+
+.micro-img {
+  background-image: url('../img/Micro1.jpg');
 }
 
 .service-icon {
@@ -190,6 +218,10 @@ header {
 .service-icon img {
   max-width: 100%;
   max-height: 100%;
+}
+
+.service-content {
+  padding: 20px;
 }
 
 .service-content h3 {
@@ -244,6 +276,99 @@ footer {
   margin-bottom: 20px;
 }
 
+/* Lab Information Pages */
+.lab-page {
+  padding: 60px 0;
+}
+
+.section-header {
+  margin-bottom: 40px;
+}
+
+.underline-title {
+  font-size: 3rem;
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.underline-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 4px;
+  background-color: var(--primary-color);
+}
+
+.lab-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.lab-content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.lab-content p {
+  margin-bottom: 20px;
+  line-height: 1.7;
+  color: #555;
+}
+
+.lab-image img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.action-buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.icon-calendar, .icon-user {
+  margin-right: 8px;
+}
+
+/* Responsive adjustments for lab pages */
+@media (max-width: 768px) {
+  .lab-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .lab-image {
+    order: -1;
+  }
+  
+  .underline-title {
+    font-size: 2.5rem;
+  }
+  
+  .lab-content h2 {
+    font-size: 1.8rem;
+  }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .services-grid {
@@ -263,5 +388,324 @@ footer {
     position: static;
     justify-content: center;
     margin-top: 30px;
+  }
+}
+
+/* Appointment Scheduling Page */
+.appointment-page {
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--light-color);
+}
+
+.appointment-container {
+  display: flex;
+  height: 100vh;
+}
+
+.appointment-sidebar {
+  width: 30%;
+  background-color: var(--primary-color);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/Banner2.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 20px;
+}
+
+.back-link {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: var(--white);
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.sidebar-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sidebar-logo img {
+  width: 80px;
+  height: auto;
+}
+
+.appointment-content {
+  width: 70%;
+  padding: 20px 30px;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.appointment-content h1 {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+  color: #222;
+}
+
+.appointment-content > p {
+  color: #666;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+.appointment-form h2 {
+  font-size: 1.1rem;
+  margin: 15px 0 10px;
+  color: #222;
+}
+
+.form-note {
+  color: #ff3366;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.input-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+}
+
+.calendar {
+  margin: 10px 0 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+}
+
+.calendar-header h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.year-selector {
+  background-color: var(--white);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  background-color: #eee;
+}
+
+.calendar-day-header {
+  background-color: var(--white);
+  padding: 5px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.7rem;
+}
+
+.calendar-day {
+  background-color: var(--white);
+  padding: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 0.8rem;
+}
+
+.calendar-day:hover {
+  background-color: #f0f7ff;
+}
+
+.calendar-day.selected {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.calendar-day.disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.liquid-carried {
+  margin-bottom: 15px;
+}
+
+.form-checkboxes {
+  margin-bottom: 15px;
+}
+
+.form-check {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.form-check input {
+  margin-top: 3px;
+  margin-right: 8px;
+}
+
+.form-check label {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.form-check a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.time-display {
+  margin-top: 15px;
+  text-align: left;
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.time-display p:first-child {
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+/* Responsive adjustments for appointment page */
+@media (max-width: 992px) {
+  .appointment-container {
+    flex-direction: column;
+  }
+  
+  .appointment-sidebar {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .appointment-content {
+    width: 100%;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Lab Landing Page */
+.lab-landing-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 40px 0;
+}
+
+.lab-landing-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  background-color: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.lab-image-section {
+  width: 45%;
+  position: relative;
+  overflow: hidden;
+}
+
+.lab-image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.lab-content-section {
+  width: 55%;
+  padding: 60px;
+}
+
+.lab-content-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.lab-content-section p {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.lab-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+/* Responsive adjustments for lab landing page */
+@media (max-width: 992px) {
+  .lab-landing-container {
+    flex-direction: column;
+    margin: 20px;
+  }
+  
+  .lab-image-section, 
+  .lab-content-section {
+    width: 100%;
+  }
+  
+  .lab-image-section {
+    height: 300px;
+  }
+  
+  .lab-content-section {
+    padding: 30px;
+  }
+  
+  .lab-content-section h1 {
+    font-size: 2rem;
   }
 } 

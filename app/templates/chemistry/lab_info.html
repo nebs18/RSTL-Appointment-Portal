@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="lab-page">
+    <div class="container">
+      <div class="section-header">
+        <h1 class="underline-title">Our Services</h1>
+      </div>
+      
+      <div class="lab-info">
+        <div class="lab-content">
+          <h2>Chemical Testing</h2>
+          <p>
+            The Chemical Testing Laboratory provides comprehensive analysis services for various samples and materials. 
+            Our services ensure accurate composition verification and quality assessment, helping industries maintain product standards and regulatory compliance.
+          </p>
+          <p>
+            We offer chemical analysis services for a wide range of materials including water, food products, 
+            soil, and industrial chemicals. Our laboratory is equipped with advanced analytical instruments 
+            and staffed by experienced chemists.
+          </p>
+          <div class="action-buttons">
+            <a href="#" class="btn btn-primary">
+              <i class="icon-calendar"></i> Get Scheduled
+            </a>
+            <a href="#" class="btn btn-outline">
+              <i class="icon-user"></i> Online Services
+            </a>
+          </div>
+        </div>
+        <div class="lab-image">
+          <img src="{{ url_for('static', filename='img/Chem1.jpg') }}" alt="Chemical Testing Laboratory">
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %} 
