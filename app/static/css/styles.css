@@ -85,13 +85,14 @@ header {
 
 /* Hero Section */
 .hero {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/Banner.jpg');
+  background-image: linear-gradient(rgba(2, 30, 170, 0.5), rgba(0, 0, 0, 0.5)), url('../img/Banner.jpg');
   background-size: cover;
   background-position: center;
   color: var(--white);
   padding: 120px 0;
   text-align: left;
   position: relative;
+
 }
 
 .hero-content {
